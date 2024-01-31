@@ -1,0 +1,8 @@
+.cal{
+    display: flex;
+}
+
+.cal-sub{
+    margin: auto;
+    margin-top: 5%;
+}
