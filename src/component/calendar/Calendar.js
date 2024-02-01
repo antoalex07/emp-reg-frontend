@@ -22,7 +22,7 @@ const Calendar = () => {
             <StaticDatePicker 
               className='cal-sub' 
               orientation="landscape"
-              onChange={handleDateChange} />
+              onAccept={handleDateChange} />
         </LocalizationProvider>
     </div>
   )
