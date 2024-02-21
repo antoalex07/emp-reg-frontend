@@ -1,0 +1,51 @@
+body, html{
+    margin: 0;
+    overflow-y: hidden;
+    font-family: 'AdamWarrenPro';
+}
+
+.home{
+    display: flex;
+    height: 100vh;
+}
+
+.section{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    color: aliceblue;
+    font-family: AdamWarrenPro, serif;
+}
+
+.section-1{
+    background-image: url('../images/section1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.section-2 {
+    background-image: url('../images/section2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.section-3{
+    background-image: url('../images/section3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 24px;
+    color: inherit;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover{
+    background: rgba(0, 0, 0, 0.7);
+}
