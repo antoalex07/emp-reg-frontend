@@ -13,14 +13,14 @@ const Calendar = () => {
 
     const datePart = date.toISOString().split('T')[0];
 
-    navigate(`/day?date=${datePart}`);
+    navigate(`/calendar/day?date=${datePart}`);
   }
 
   return (
-    <div className='cal'>
+    <div className='body'>
         <LocalizationProvider dateAdapter={AdapterDayjs} >
             <StaticDatePicker 
-              className='cal-sub' 
+              className='calendar'
               orientation="landscape"
               onAccept={handleDateChange} />
         </LocalizationProvider>

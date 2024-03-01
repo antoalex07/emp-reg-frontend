@@ -9,7 +9,3 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: 'AdamWarrenPro';
-  src: local('AdamWarrenPro') url(./fonts/adam-warren-pro.regular.ttf) format('truetype');
-}

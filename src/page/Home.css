@@ -1,51 +1,63 @@
+
 body, html{
-    margin: 0;
+    overflow-x: hidden;
     overflow-y: hidden;
-    font-family: 'AdamWarrenPro';
-}
+} 
 
 .home{
     display: flex;
     height: 100vh;
+    width: 100vw;
+    margin-left: -2.6%;
 }
 
 .section{
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    color: aliceblue;
-    font-family: AdamWarrenPro, serif;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: #8bd5e5;
+    text-align: center;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "MORF" 15,
+      "SHLN" 50;
 }
 
 .section-1{
-    background-image: url('../images/section1.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #009fff, #ec2f4b);
 }
 
 .section-2 {
-    background-image: url('../images/section2.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #415587, #3eb070);
 }
 
 .section-3{
-    background-image: url('../images/section3.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #131199, #38ef7d);
 }
 
-.link {
+.section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+.section > a {
+    position: relative;
+    z-index: 1;
+    color: #fff;
     text-decoration: none;
-    font-size: 24px;
-    color: inherit;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.link:hover{
-    background: rgba(0, 0, 0, 0.7);
+    font-size: 45px;
 }

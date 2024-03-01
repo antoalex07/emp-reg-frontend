@@ -3,6 +3,7 @@ import './App.css';
 import Header from './component/header/Header';
 import Home from './page/Home';
 import Day from './page/Day';
+import Calendar from './component/calendar/Calendar';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/day' element={<Day/>} />
+        <Route path='/calendar' element={<Calendar/>} />
+        <Route path='/calendar/day' element={<Day/>} />
       </Routes>
     </div>
   );

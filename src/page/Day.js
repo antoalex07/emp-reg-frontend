@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import './Day.css';
 import api from '../api/axiosConfig';
+import { Fab } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const handleButtonClick = (id) => {
   console.log('Button clicked for row Id: ', id);
@@ -66,12 +70,13 @@ const Day = () => {
   const date = urlParams.get("date");
 
   const [employees, setEmployees] = useState();
+  const navigate = useNavigate();
 
   const getEmployees = async () => {
     
     try {
       
-      const response = await api.get(`/api/v2/employee/${date}`);
+      const response = await api.get(`/api/v2/attendance/${date}`);
       console.log(response);
       setEmployees(response.data);
 
@@ -86,19 +91,35 @@ const Day = () => {
     getEmployees();
   }, [])
 
+  const handleAddButtonClick = () => {
+    navigate("/day/add-attendance");
+  }
+
   return (
     <div className='table'>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 10 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
+      <Fab
+        //className='fabButton'
+        color='primary'
+        aria-label='add'
+        style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000}}
+        onClick={handleAddButtonClick}
+      >
+        <FontAwesomeIcon icon={faUserPlus}/>
+      </Fab>
+
+      <div style={{ height: 'calc(100% - 80px)', marginTop: -10 }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 10 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+          checkboxSelection
+        />
+      </div>
     </div>
   )
 }
