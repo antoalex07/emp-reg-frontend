@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import './Day.css';
-import api from '../api/axiosConfig';
+import api from '../../api/axiosConfig';
 import { Fab } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -92,7 +92,7 @@ const Day = () => {
   }, [])
 
   const handleAddButtonClick = () => {
-    navigate("/day/add-attendance");
+    navigate(`/calendar/day/add-attendance?date=${date}`);
   }
 
   return (
@@ -117,7 +117,6 @@ const Day = () => {
             },
           }}
           pageSizeOptions={[5, 10]}
-          checkboxSelection
         />
       </div>
     </div>
