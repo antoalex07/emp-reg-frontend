@@ -46,10 +46,10 @@ const AddAttendance = () => {
               id="combo-box-demo"
               options={remainingIds}
               sx={{ width: 300 }}
-              getOptionLabel={(option) => option.empId} // Define how to get the label from the option
+              getOptionLabel={(option) => option.empId} 
               onChange={(event, newValue) => {
-                const selectedEmployeeId = newValue ? newValue.empId : ''; // Get the title of the selected option
-                setFormData({ ...formData, empId: selectedEmployeeId }); // Update the employeeId in the state
+                const selectedEmployeeId = newValue ? newValue.empId : ''; 
+                setFormData({ ...formData, empId: selectedEmployeeId }); 
               }}
               renderInput={(params) => <TextField {...params} label="Employee Id"/>}
             />
