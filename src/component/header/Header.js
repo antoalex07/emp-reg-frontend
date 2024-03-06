@@ -2,9 +2,15 @@ import { faMeteor } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+    const handleButtonClick = () => {
+        const navigate = useNavigate();
+        navigate("/employeeRegister");
+    }
+
   return (
     <Navbar bg='dark' variant='dark' expand="lg" fixed='top'>
         <Container fluid>
@@ -21,8 +27,7 @@ const Header = () => {
                     <NavLink className="nav-link" to="/">Home</NavLink>
                     <NavLink className="nav-link" to="/watchList">Watch List</NavLink>
                 </Nav>
-                <Button variant='outline-info' className='me-2'>Login</Button>
-                <Button variant='outline-info'>Register</Button>
+                <Button variant='outline-info' onClick={handleButtonClick}>Employee Register</Button>
             </Navbar.Collapse>
         </Container>
     </Navbar>
