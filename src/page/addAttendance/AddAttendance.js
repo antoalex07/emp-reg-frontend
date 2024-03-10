@@ -1,6 +1,7 @@
-import { Autocomplete, Button, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import { Autocomplete, Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
 import "./AddAttendance.css";
+import api from "../../api/axiosConfig";
 
 const remainingIds = [
   {empId:"1102"},
@@ -27,10 +28,22 @@ const AddAttendance = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit= (event) => {
+  const handleSubmit= async (event) => {
+    
     event.preventDefault();
     const jsonData = JSON.stringify(formData);
-    console.log(jsonData)
+
+    try {
+      
+      const response = await api.post("/api/v2/attendance/create", {jsonData})
+      console.log(response);
+    
+    } catch (error) {
+
+      console.log(error);
+      
+    }
+
   };
 
   return (
