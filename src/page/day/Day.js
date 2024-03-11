@@ -98,7 +98,6 @@ const Day = () => {
   return (
     <div className='table'>
       <Fab
-        //className='fabButton'
         color='primary'
         aria-label='add'
         style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000}}
