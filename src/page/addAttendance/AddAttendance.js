@@ -2,19 +2,21 @@ import { Autocomplete, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import "./AddAttendance.css";
 import api from "../../api/axiosConfig";
+import { useNavigate } from 'react-router-dom';
 
 const remainingIds = [
-  {empId:"1102"},
-  {empId:"1103"},
-  {empId:"1104"},
-  {empId:"1105"}
+  1102,
+  1103,
+  1104,
+  1105
 ];
 
 const AddAttendance = () => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const date = urlParams.get("date");
-
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     empId: "",
     date: date,
@@ -32,6 +34,7 @@ const AddAttendance = () => {
     
     event.preventDefault();
     const jsonData = JSON.stringify(formData);
+    //console.log(jsonData);
 
     try {
       
@@ -43,6 +46,8 @@ const AddAttendance = () => {
       console.log(error);
       
     }
+
+    
 
   };
 
@@ -59,9 +64,9 @@ const AddAttendance = () => {
               id="combo-box-demo"
               options={remainingIds}
               sx={{ width: 300 }}
-              getOptionLabel={(option) => option.empId} 
+              getOptionLabel={(option) => option.toString()} 
               onChange={(event, newValue) => {
-                const selectedEmployeeId = newValue ? newValue.empId : ''; 
+                const selectedEmployeeId = newValue ? newValue.toString() : ''; 
                 setFormData({ ...formData, empId: selectedEmployeeId }); 
               }}
               renderInput={(params) => <TextField {...params} label="Employee Id"/>}
