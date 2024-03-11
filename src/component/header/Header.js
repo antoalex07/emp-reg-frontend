@@ -6,8 +6,9 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
+    const navigate = useNavigate();
+
     const handleButtonClick = () => {
-        const navigate = useNavigate();
         navigate("/employeeRegister");
     }
 
