@@ -16,7 +16,7 @@ const Home = () => {
       </Link>
     </div>
     <div className='section section-3'>
-      <Link to="/page3" className='link'>
+      <Link to="/createEmployee" className='link'>
         Create Employee
       </Link>
     </div>
