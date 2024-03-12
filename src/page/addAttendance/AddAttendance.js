@@ -46,9 +46,7 @@ const AddAttendance = () => {
       console.log(error);
       
     }
-
-    
-
+    navigate(`/calendar/day?date=${date}`);    
   };
 
   return (
@@ -91,7 +89,7 @@ const AddAttendance = () => {
               id="outlined-required"
               label="Work"
               type="number"
-              value={formData.work}
+              //value={formData.work}
               name="work"
               onChange={handleChange}
               sx={{width: 300}}
@@ -104,7 +102,7 @@ const AddAttendance = () => {
               id="outlined-required"
               label="Overtime"
               type="number"
-              value={formData.overtime}
+              //value={formData.overtime}
               name="overtime"
               onChange={handleChange}
               sx={{width: 300}}
@@ -117,7 +115,7 @@ const AddAttendance = () => {
               id="outlined-required"
               label="Advance"
               type="number"
-              value={formData.advance}
+              //value={formData.advance}
               name="advance"
               onChange={handleChange}
               sx={{width: 300}}
