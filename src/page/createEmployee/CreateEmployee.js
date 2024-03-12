@@ -2,22 +2,40 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import "./CreateEmployee.css";
 import { Button } from '@mui/material';
+import api from "../../api/axiosConfig";
 
 const CreateEmployee = () => {
 
-  const [value, setValue] = useState();
   const [error, setError] = useState(false);
+  const [formValid, setFormValid] = useState(false);
+  const [formData, setFormData] = useState({
+    empId: "",
+    name: "",
+    wageRate: 0,
+    overtimeRate: 0,
+    dueAmount: 0
+  });
 
   const handleChange = (event) => {
-    const inputValue = event.target.value;
-    // Here you can add your logic to check if the input value is erroneous
-    const isError = inputValue.trim() === ""; // Example: Check if the input is empty
-    setError(isError);
-    setValue(inputValue);
+    const {name, value} = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
-    console.log("beautiful");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const jsonData = JSON.stringify(formData);
+    console.log(jsonData);
+
+    try {
+      
+      const response = await api.post("/api/v2/employee/create", {jsonData})
+      console.log(response);
+    
+    } catch (error) {
+
+      console.log(error);
+      
+    }
   }
 
   return (
@@ -32,8 +50,16 @@ const CreateEmployee = () => {
             error={error}
             id="outlined-error"
             label="Employee Id"
-            value={value}
-            onChange={handleChange}
+            name="empId"
+            onChange={async (event) => {
+              const {name, value} = event.target;
+              const isError = await api.get(`/api/v2/employee/check/${value}`);
+              setError(isError);
+              if(!isError){
+                setFormData({ ...formData, [name]: value });
+              }
+              setFormValid(!isError);
+            }}
             helperText={error ? "Incorrect entry." : ""}
             sx={{width: 300}}
           />
@@ -45,9 +71,8 @@ const CreateEmployee = () => {
               id="outlined-required"
               label="Employee Name"
               type="text"
-              //value={formData.work}
               name="name"
-              //onChange={handleChange}
+              onChange={handleChange}
               sx={{width: 300}}
             />
           </div>
@@ -58,9 +83,8 @@ const CreateEmployee = () => {
               id="outlined-required"
               label="Wage Rate"
               type="number"
-              //value={formData.work}
               name="wageRate"
-              //onChange={handleChange}
+              onChange={handleChange}
               sx={{width: 300}}
             />
           </div>
@@ -71,9 +95,8 @@ const CreateEmployee = () => {
               id="outlined-required"
               label="Overtime Rate"
               type="number"
-              //value={formData.work}
               name="overtimeRate"
-              //onChange={handleChange}
+              onChange={handleChange}
               sx={{width: 300}}
             />
           </div>
@@ -84,14 +107,13 @@ const CreateEmployee = () => {
               id="outlined-required"
               label="Due Amount"
               type="number"
-              //value={formData.work}
               name="dueAmount"
-              //onChange={handleChange}
+              onChange={handleChange}
               sx={{width: 300}}
             />
           </div>
 
-          <Button variant="contained" type='submit'>Submit</Button>
+          <Button variant="contained" type='submit' disabled={!formValid}>Submit</Button>
 
         </form>
     </div>
