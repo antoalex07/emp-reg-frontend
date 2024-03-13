@@ -12,7 +12,7 @@ const handleButtonClick = (id) => {
 };
 
 const columns = [
-  { field: 'empId', 
+  { field: 'id', 
     headerName: 'ID', 
     width: 70 
   },
@@ -22,19 +22,19 @@ const columns = [
     width: 130 
   },
   { 
-    field: 'wageRate', 
-    headerName: 'Wage Rate',
+    field: 'work', 
+    headerName: 'Work Load',
     type: 'number', 
     width: 130 },
   {
-    field: 'overtimeRate',
-    headerName: 'Overtime Rate',
+    field: 'overtime',
+    headerName: 'Overtime Hours',
     type: 'number',
     width: 130,
   },
   {
-    field: 'dueAmount',
-    headerName: 'Due Amount',
+    field: 'advance',
+    headerName: 'Advance',
     type: 'number',
     width: 90,
   },
