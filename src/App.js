@@ -6,6 +6,7 @@ import Day from './page/day/Day';
 import Calendar from './component/calendar/Calendar';
 import AddAttendance from './page/addAttendance/AddAttendance';
 import CreateEmployee from './page/createEmployee/CreateEmployee';
+import EmployeeRegister from './page/employeeRegister/EmployeeRegister';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/calendar/day' element={<Day/>} />
         <Route path='/calendar/day/add-attendance' element={<AddAttendance/>} />
         <Route path='/createEmployee' element={<CreateEmployee/>} />
+        <Route path='/employeeRegister' element={<EmployeeRegister/>} />
       </Routes>
     </div>
   );

@@ -69,16 +69,16 @@ const Day = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const date = urlParams.get("date");
 
-  const [employees, setEmployees] = useState();
+  const [attendances, setAttendances] = useState();
   const navigate = useNavigate();
 
-  const getEmployees = async () => {
+  const getAttendances = async () => {
     
     try {
       
       const response = await api.get(`/api/v2/attendance/${date}`);
       console.log(response);
-      setEmployees(response.data);
+      setAttendances(response.data);
 
     } catch (error) {
       
@@ -88,7 +88,7 @@ const Day = () => {
   }
 
   useEffect(() => {
-    getEmployees();
+    getAttendances();
   }, [])
 
   const handleAddButtonClick = () => {
@@ -108,7 +108,7 @@ const Day = () => {
 
       <div style={{ height: 'calc(100% - 80px)', marginTop: -10 }}>
         <DataGrid
-          rows={rows}
+          rows={attendances}
           columns={columns}
           initialState={{
             pagination: {
