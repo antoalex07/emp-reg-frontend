@@ -11,7 +11,7 @@ const Home = () => {
       </Link>
     </div>
     <div className='section section-2'>
-      <Link to="/page2" className='link'>
+      <Link to="/employeeDetails" className='link'>
         Employee Details
       </Link>
     </div>
