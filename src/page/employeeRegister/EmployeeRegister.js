@@ -80,18 +80,22 @@ const columns = [
         getEmployees();
     }, [])
 
+    console.log(employees);
+
     return (
+      <div className='table'>
         <div style={{ height: 'calc(100% - 80px)', marginTop: -10 }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-        />
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 10 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+          />
+        </div>
       </div>
     );
 }
