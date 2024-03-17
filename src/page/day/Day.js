@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import './Day.css';
 import api from '../../api/axiosConfig';
-import { Fab } from '@mui/material';
+import { Button, Fab } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -44,24 +44,24 @@ const columns = [
     width: 150,
     renderCell: (params) => (
       <div>
-        <button onClick={() => handleButtonClick(params.row.empId)}>
+        <Button onClick={() => handleButtonClick(params.row.empId)}>
           Edit
-        </button>
+        </Button>
       </div>
     ), 
   },
 ];
 
 const rows = [
-  { id: 1, name: 'Snow', firstName: 'Jon', wageRate: 35 },
-  { id: 2, name: 'Lannister', firstName: 'Cersei', wageRate: 42 },
-  { id: 3, name: 'Lannister', firstName: 'Jaime', wageRate: 45 },
-  { id: 4, name: 'Stark', firstName: 'Arya', wageRate: 16 },
-  { id: 5, name: 'Targaryen', firstName: 'Daenerys', wageRate: null },
-  { id: 6, name: 'Melisandre', firstName: null, wageRate: 150 },
-  { id: 7, name: 'Clifford', firstName: 'Ferrara', wageRate: 44 },
-  { id: 8, name: 'Frances', firstName: 'Rossini', wageRate: 36 },
-  { id: 9, name: 'Roxie', firstName: 'Harvey', wageRate: 65 },
+  { id: 1, name: 'Snow', work: 5, overtime: 3, advance: 3000 },
+  { id: 2, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+  { id: 3, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+  { id: 4, name: 'Stark', work: 5, overtime: 3, advance: 3000 },
+  { id: 5, name: 'Targaryen', work: 5, overtime: 3, advance: 3000 },
+  { id: 6, name: 'Melisandre', work: 5, overtime: 3, advance: 3000 },
+  { id: 7, name: 'Clifford',  work: 5, overtime: 3, advance: 3000 },
+  { id: 8, name: 'Frances', work: 5, overtime: 3, advance: 3000 },
+  { id: 9, name: 'Roxie', work: 5, overtime: 3, advance: 3000 },
 ];
 
 const Day = () => {
@@ -77,7 +77,7 @@ const Day = () => {
     try {
       
       const response = await api.get(`/api/v2/attendance/${date}`);
-      console.log(response);
+      console.log(response.status);
       setAttendances(response.data);
 
     } catch (error) {
@@ -90,6 +90,8 @@ const Day = () => {
   useEffect(() => {
     getAttendances();
   }, [])
+
+  //console.log(attendances);
 
   const handleAddButtonClick = () => {
     navigate(`/calendar/day/add-attendance?date=${date}`);
@@ -108,7 +110,7 @@ const Day = () => {
 
       <div style={{ height: 'calc(100% - 80px)', marginTop: -10 }}>
         <DataGrid
-          rows={attendances}
+          rows={rows}
           columns={columns}
           initialState={{
             pagination: {
