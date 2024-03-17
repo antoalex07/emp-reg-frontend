@@ -1,0 +1,44 @@
+.emp-details{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.search-button{
+    margin-bottom: 20px;
+}
+
+.details-container{
+    display: flex;
+}
+
+.general-details,
+.attendance-details{
+    flex: 1;
+    margin-right: 20px;
+}
+
+.attendance-details{
+    margin-right: 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .details-container{
+        flex-direction: column;
+    }
+}
+
+.general-details,
+.attendance-details {
+    margin-right: 0;
+}
+
+.search-button{
+    margin-bottom: 10px;
+}
