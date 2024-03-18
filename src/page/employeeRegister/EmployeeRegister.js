@@ -3,9 +3,13 @@ import api from '../../api/axiosConfig';
 import "./EmployeeRegister.css";
 import { Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
 
 const handleButtonClick = (id) => {
     console.log('Button clicked for row Id: ', id);
+    navigate(`/updateEmployee/id=${id}`);
   };
   
 const columns = [
