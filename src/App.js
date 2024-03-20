@@ -8,6 +8,8 @@ import AddAttendance from './page/addAttendance/AddAttendance';
 import CreateEmployee from './page/createEmployee/CreateEmployee';
 import EmployeeRegister from './page/employeeRegister/EmployeeRegister';
 import EmployeeDetails from './page/employeeDetails/EmployeeDetails';
+import UpdateEmployee from './page/updateEmployee/UpdateEmployee';
+import UpdateAttendance from './page/updateAttendance/UpdateAttendance';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/createEmployee' element={<CreateEmployee/>} />
         <Route path='/employeeRegister' element={<EmployeeRegister/>} />
         <Route path='/employeeDetails' element={<EmployeeDetails/>} />
+        <Route path='/updateEmployee' element={<UpdateEmployee/>}/>
+        <Route path='/updateAttendance' element={<UpdateAttendance/>}/>
       </Routes>
     </div>
   );
