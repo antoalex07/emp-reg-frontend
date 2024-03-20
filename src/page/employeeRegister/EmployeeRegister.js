@@ -5,53 +5,8 @@ import { Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
 
-const handleButtonClick = (id) => {
-    console.log('Button clicked for row Id: ', id);
-    navigate(`/updateEmployee/id=${id}`);
-  };
-  
-const columns = [
-    { field: 'id', 
-      headerName: 'ID', 
-      width: 70 
-    },
-    { 
-      field: 'name', 
-      headerName: 'Name', 
-      width: 130 
-    },
-    { 
-      field: 'wageRate', 
-      headerName: 'Wage Rate',
-      type: 'number', 
-      width: 130 },
-    {
-      field: 'overtimeRate',
-      headerName: 'Overtime Rate',
-      type: 'number',
-      width: 130,
-    },
-    {
-      field: 'dueAmount',
-      headerName: 'Due Amount',
-      type: 'number',
-      width: 90,
-    },
-    {
-      field: 'actions',
-      headerName: 'Edit',
-      width: 150,
-      renderCell: (params) => (
-        <div>
-            <Button onClick={() => handleButtonClick(params.row.id)}>Edit</Button>
-        </div>
-      ), 
-    },
-  ];
-
-  const rows = [
+const rows = [
     { id: 1, name: 'Snow', wageRate: 35, overtimeRate: 200, dueAmount: 6000 },
     { id: 2, name: 'Lannister', wageRate: 42, overtimeRate: 200, dueAmount: 6000 },
     { id: 3, name: 'Lannister', wageRate: 45, overtimeRate: 200, dueAmount: 6000 },
@@ -64,9 +19,56 @@ const columns = [
   ];
   
 
- const EmployeeRegister = () => {
+const EmployeeRegister = () => {
 
-    const [employees, setEmployees] = useState();
+  const [employees, setEmployees] = useState();
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = (id) => {
+      console.log('Button clicked for row Id: ', id);
+      navigate(`/updateEmployee/id=${id}`);
+    };
+  
+  const columns = [
+      { field: 'id', 
+        headerName: 'ID', 
+        width: 70 
+      },
+      { 
+        field: 'name', 
+        headerName: 'Name', 
+        width: 130 
+      },
+      { 
+        field: 'wageRate', 
+        headerName: 'Wage Rate',
+        type: 'number', 
+        width: 130 },
+      {
+        field: 'overtimeRate',
+        headerName: 'Overtime Rate',
+        type: 'number',
+        width: 130,
+      },
+      {
+        field: 'dueAmount',
+        headerName: 'Due Amount',
+        type: 'number',
+        width: 90,
+      },
+      {
+        field: 'actions',
+        headerName: 'Edit',
+        width: 150,
+        renderCell: (params) => (
+          <div>
+              <Button onClick={() => handleButtonClick(params.row.id)}>Edit</Button>
+          </div>
+        ), 
+      },
+    ];
+
 
     const getEmployees = async () => {
         try {

@@ -5,57 +5,59 @@ import api from "../../api/axiosConfig"
 import { DataGrid } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
-
-const handleButtonClick = (id) => {
-  console.log('Button clicked for row Id: ', id);
-  navigate(`/updateAttendance/id=${id}`);
-};
-
-const columns = [
-  { field: 'id', 
-    headerName: 'ID', 
-    width: 70 
-  },
-  { 
-    field: 'date', 
-    headerName: 'Date', 
-    width: 130 
-  },
-  { 
-    field: 'work', 
-    headerName: 'Work',
-    type: 'number', 
-    width: 130 },
-  {
-    field: 'overtime',
-    headerName: 'Overtime Hours',
-    type: 'number',
-    width: 130,
-  },
-  {
-    field: 'advance',
-    headerName: 'Advance',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'actions',
-    headerName: 'Edit',
-    width: 150,
-    renderCell: (params) => (
-      <div>
-          <Button onClick={() => handleButtonClick(params.row.id)}>Edit</Button>
-      </div>
-    ), 
-  },
-];
-
 
 const EmployeeDetails = () => {
 
   const [employeeId, setEmployeeId] = useState("");
   const [employeeDetails, setEmployeeDetails] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = (id) => {
+    console.log('Button clicked for row Id: ', id);
+    navigate(`/updateAttendance/id=${id}`);
+  };
+
+  const columns = [
+    { field: 'id', 
+      headerName: 'ID', 
+      width: 70 
+    },
+    { 
+      field: 'date', 
+      headerName: 'Date', 
+      width: 130 
+    },
+    { 
+      field: 'work', 
+      headerName: 'Work',
+      type: 'number', 
+      width: 130 },
+    {
+      field: 'overtime',
+      headerName: 'Overtime Hours',
+      type: 'number',
+      width: 130,
+    },
+    {
+      field: 'advance',
+      headerName: 'Advance',
+      type: 'number',
+      width: 90,
+    },
+    {
+      field: 'actions',
+      headerName: 'Edit',
+      width: 150,
+      renderCell: (params) => (
+        <div>
+            <Button onClick={() => handleButtonClick(params.row.id)}>Edit</Button>
+        </div>
+      ), 
+    },
+  ];
+
+
 
   // const handleSearch = async () => {
   //   try {
