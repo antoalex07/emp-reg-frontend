@@ -6,7 +6,12 @@ const UpdateAttendance = () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
-    const [attendance, setAttendance] = useState(null);
+    const [attendance, setAttendance] = useState({
+        date: new Date().toISOString().split('T')[0],
+        work: 5,
+        overtime: 4,
+        advance: 1000
+    });
 
     const handleChange = () => {
         console.log("murica");
