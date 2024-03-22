@@ -7,63 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
-const handleButtonClick = (id) => {
-  console.log('Button clicked for row Id: ', id);
-};
-
-const columns = [
-  { field: 'id', 
-    headerName: 'ID', 
-    width: 70 
-  },
-  { 
-    field: 'name', 
-    headerName: 'Name', 
-    width: 130 
-  },
-  { 
-    field: 'work', 
-    headerName: 'Work Load',
-    type: 'number', 
-    width: 130 },
-  {
-    field: 'overtime',
-    headerName: 'Overtime Hours',
-    type: 'number',
-    width: 130,
-  },
-  {
-    field: 'advance',
-    headerName: 'Advance',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'actions',
-    headerName: 'Actions',
-    width: 150,
-    renderCell: (params) => (
-      <div>
-        <Button onClick={() => handleButtonClick(params.row.empId)}>
-          Edit
-        </Button>
-      </div>
-    ), 
-  },
-];
-
-const rows = [
-  { id: 1, name: 'Snow', work: 5, overtime: 3, advance: 3000 },
-  { id: 2, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
-  { id: 3, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
-  { id: 4, name: 'Stark', work: 5, overtime: 3, advance: 3000 },
-  { id: 5, name: 'Targaryen', work: 5, overtime: 3, advance: 3000 },
-  { id: 6, name: 'Melisandre', work: 5, overtime: 3, advance: 3000 },
-  { id: 7, name: 'Clifford',  work: 5, overtime: 3, advance: 3000 },
-  { id: 8, name: 'Frances', work: 5, overtime: 3, advance: 3000 },
-  { id: 9, name: 'Roxie', work: 5, overtime: 3, advance: 3000 },
-];
-
 const Day = () => {
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -71,6 +14,63 @@ const Day = () => {
 
   const [attendances, setAttendances] = useState();
   const navigate = useNavigate();
+
+  const handleButtonClick = (id) => {
+    console.log('Button clicked for row Id: ', id);
+  };
+
+  const columns = [
+    { field: 'id', 
+      headerName: 'ID', 
+      width: 70 
+    },
+    { 
+      field: 'name', 
+      headerName: 'Name', 
+      width: 130 
+    },
+    { 
+      field: 'work', 
+      headerName: 'Work Load',
+      type: 'number', 
+      width: 130 },
+    {
+      field: 'overtime',
+      headerName: 'Overtime Hours',
+      type: 'number',
+      width: 130,
+    },
+    {
+      field: 'advance',
+      headerName: 'Advance',
+      type: 'number',
+      width: 90,
+    },
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      width: 150,
+      renderCell: (params) => (
+        <div>
+          <Button onClick={() => handleButtonClick(params.row.empId)}>
+            Edit
+          </Button>
+        </div>
+      ), 
+    },
+  ];
+
+  const rows = [
+    { id: 1, name: 'Snow', work: 5, overtime: 3, advance: 3000 },
+    { id: 2, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+    { id: 3, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+    { id: 4, name: 'Stark', work: 5, overtime: 3, advance: 3000 },
+    { id: 5, name: 'Targaryen', work: 5, overtime: 3, advance: 3000 },
+    { id: 6, name: 'Melisandre', work: 5, overtime: 3, advance: 3000 },
+    { id: 7, name: 'Clifford',  work: 5, overtime: 3, advance: 3000 },
+    { id: 8, name: 'Frances', work: 5, overtime: 3, advance: 3000 },
+    { id: 9, name: 'Roxie', work: 5, overtime: 3, advance: 3000 },
+  ];
 
   const getAttendances = async () => {
     
