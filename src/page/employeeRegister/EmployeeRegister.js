@@ -27,7 +27,7 @@ const EmployeeRegister = () => {
 
   const handleButtonClick = (id) => {
       console.log('Button clicked for row Id: ', id);
-      navigate(`/updateAttendance?id=${id}`);
+      navigate(`/updateEmployee?id=${id}`);
     };
   
   const columns = [
