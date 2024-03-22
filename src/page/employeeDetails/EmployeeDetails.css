@@ -16,7 +16,22 @@
     display: flex;
 }
 
-.general-details,
+.general-details{
+    flex: 1;
+    width: 5%;
+    /* background: linear-gradient(135deg, #85b5d3, #4168cb); */
+    font-family:'Times New Roman', Times, serif;
+}
+
+.attendance-details{
+    flex: 1;
+    width: 95%;
+    max-height: 500px;
+    /* background: linear-gradient(125deg, #e69ec0, #a70b4c); */
+}
+
+
+/* .general-details,
 .attendance-details{
     flex: 1;
     margin-right: 20px;
@@ -41,4 +56,4 @@
 
 .search-button{
     margin-bottom: 10px;
-}
+} */
