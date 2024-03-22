@@ -21,21 +21,21 @@ const UpdateAttendance = () => {
         console.log("canada");
     }
 
-    // const getAttendance = async () => {
-    //     try {
+    const getAttendance = async () => {
+        try {
             
-    //         const response = await api.get(`/api/v2/attendance/${id}`);
-    //         console.log(response.status);
-    //         setAttendance(response.data);
+            const response = await api.get(`/api/v2/attendance/${id}`);
+            console.log(response.status);
+            setAttendance(response.data);
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    // useEffect(() => {
-    //     getAttendance();
-    // }, [])
+    useEffect(() => {
+        getAttendance();
+    }, [])
 
     return (
         <div className='form-container'>
