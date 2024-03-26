@@ -17,21 +17,25 @@
 }
 
 .general-details{
-    flex: 1;
-    width: 5%;
+    display: block;
+    width: 25%;
+    height: 250px;
+    margin-right: 100px;
+    text-align: justify;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 10px;
-    /* background: linear-gradient(135deg, #85b5d3, #4168cb); */
+    background: linear-gradient(135deg, #85b5d3, #4168cb);
     font-family:'Times New Roman', Times, serif;
 }
 
 .attendance-details{
-    flex: 1;
-    width: 95%;
-    max-height: 500px;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    margin-left: 100px;
     /* background: linear-gradient(125deg, #e69ec0, #a70b4c); */
 }
 
