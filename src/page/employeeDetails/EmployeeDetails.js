@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import "./EmployeeDetails.css";
 import api from "../../api/axiosConfig"
@@ -12,6 +12,18 @@ const EmployeeDetails = () => {
   const [employeeDetails, setEmployeeDetails] = useState(null);
 
   const navigate = useNavigate();
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   const handleButtonClick = (id) => {
     console.log('Button clicked for row Id: ', id);
@@ -75,7 +87,7 @@ const EmployeeDetails = () => {
     // Assuming you have a function to fetch employee details based on ID
     // Replace this with your actual fetch logic
     fetchEmployeeDetails(employeeId)
-      .then((data) => setEmployeeDetails(data))
+      .then((data) => (setEmployeeDetails(data)))
       .catch((error) => console.error('Error fetching employee details: ', error));
   };
 
@@ -142,9 +154,9 @@ const EmployeeDetails = () => {
               <p><strong>Overtime Rate: </strong>{employeeDetails.overtimeRate}</p>
               <p><strong>Due Amount: </strong>{employeeDetails.dueAmount}</p>
             </div>
-            <div className='attendance-details'>
+            <div>
               <h2>Attendance Details</h2>
-              <div style={{ height: 'auto', marginTop: -10 }}>
+                <div style={{ height: 'auto', marginTop: -10 }} className='attendance-details'>
                 <DataGrid
                   rows={employeeDetails.attendances}
                   columns={columns}
@@ -152,7 +164,7 @@ const EmployeeDetails = () => {
                     pagination: {
                       paginationModel: { page: 0, pageSize: 10 },
                     },
-                  }}
+                  }}  
                   pageSizeOptions={[5, 10]}
                   disableExtendRowFullWidth={true}
                 />
@@ -166,3 +178,57 @@ const EmployeeDetails = () => {
 }
 
 export default EmployeeDetails
+
+
+
+
+              // <div className='attendance-details'>
+              //   <Paper sx={{width: '100%', overflow: 'hidden'}}>
+              //     <TableContainer sx={{maxHeight: 440}}>
+              //       <Table stickyHeader aria-label="sticky-label">
+              //         <TableHead>
+              //           <TableRow>
+              //             {columns.map((column) => (
+              //               <TableCell
+              //                 key={column.id}
+              //                 align={column.align}
+              //                 style={{minWidth: column.minWidth}}
+              //                 >
+              //                   {column.label}
+              //                 </TableCell>
+              //             ))}
+              //           </TableRow>
+              //         </TableHead>
+              //         <TableBody>
+              //           {
+              //             employeeDetails.attendances
+              //             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              //             .map((row) => {
+              //               return  (
+              //                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+              //                   {columns.map((column) => {
+              //                     const value = row[column.id];
+              //                     return (
+              //                       <TableCell key={column.id} align={column.align}>
+              //                         {column.format && typeof value === 'number' ? column.format(value) : value }
+              //                       </TableCell>
+              //                     );
+              //                   })}
+              //                 </TableRow>
+              //               );
+              //             })
+              //           }
+              //         </TableBody>
+              //       </Table>
+              //     </TableContainer>
+              //     <TablePagination
+              //       rowsPerPageOptions={[10, 25, 100]}
+              //       component="div"
+              //       count={employeeDetails.attendances.length}
+              //       rowsPerPage={rowsPerPage}
+              //       page={page}
+              //       onPageChange={handleChangePage}
+              //       onRowsPerPageChange={handleChangeRowsPerPage}
+              //     />
+              //   </Paper>
+              // </div>
