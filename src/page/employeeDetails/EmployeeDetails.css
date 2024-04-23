@@ -1,3 +1,6 @@
+/* 
+
+
 .emp-details{
     display: flex;
     justify-content: center;
@@ -32,31 +35,10 @@
 }
 
 .attendance-details{
-    display: block;
-    padding: 10px;
-    text-align: center;
-    margin-left: 100px;
-    /* background: linear-gradient(125deg, #e69ec0, #a70b4c); */
-}
-
-
-/* .general-details,
-.attendance-details{
-    flex: 1;
-    margin-right: 20px;
-} */
-
-.attendance-details{
     margin-right: 0;
     max-height: 500px;
     overflow-y: auto;
 }
-
-/* @media screen and (max-width: 768px) {
-    .details-container{
-        flex-direction: column;
-    }
-} */
 
 .general-details,
 .attendance-details {
@@ -66,3 +48,7 @@
 .search-button{
     margin-bottom: 10px;
 }
+
+.custom-data-grid .MuiDataGrid-main {
+    border: none;
+} */
