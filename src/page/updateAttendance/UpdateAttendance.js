@@ -6,8 +6,9 @@ const UpdateAttendance = () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
+    const date = urlParams.get("date");
     const [attendance, setAttendance] = useState({
-        date: new Date().toISOString().split('T')[0],
+        date: date,
         work: 5,
         overtime: 4,
         advance: 1000
