@@ -1,9 +1,9 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React, { useState } from 'react'
-import "./EmployeeDetails.css";
-import api from "../../api/axiosConfig"
+//import api from "../../api/axiosConfig"
 import { DataGrid } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
+import { createTheme } from '@mui/system'
 
 
 const EmployeeDetails = () => {
@@ -13,21 +13,9 @@ const EmployeeDetails = () => {
 
   const navigate = useNavigate();
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  const handleButtonClick = (id) => {
+  const handleButtonClick = (id, date) => {
     console.log('Button clicked for row Id: ', id);
-    navigate(`/updateAttendance?id=${id}`);
+    navigate(`/updateAttendance?id=${id}&date=${date}`);
   };
 
   const columns = [
@@ -63,7 +51,7 @@ const EmployeeDetails = () => {
       width: 150,
       renderCell: (params) => (
         <div>
-            <Button onClick={() => handleButtonClick(params.row.id)}>Edit</Button>
+            <Button onClick={() => handleButtonClick(params.row.id, params.row.date)}>Edit</Button>
         </div>
       ), 
     },
@@ -126,13 +114,25 @@ const EmployeeDetails = () => {
     });
   };
 
+  const theme = createT
+
   return (
-    <div className='emp-details'>
-      <div className='search-button'>
+    <div style={{
+      marginTop: '3%'
+    }}>
+      <div style={{
+        marginLeft: '30%',
+        marginRight: '30%',
+        boxShadow: '0 0 20px rgba(0, 0, 0, 0.2)',
+      }}>
         <TextField 
-          label="Search Employee (ID)" 
-          color="secondary" 
-          focused
+          sx={{
+            borderRadius: 2
+          }}
+          fullWidth
+          id='outlined-basic'
+          label='Search Employee (ID)'
+          variant='outlined' 
           value={employeeId}
           onChange={(event) => {
             setEmployeeId(event.target.value)
@@ -156,17 +156,10 @@ const EmployeeDetails = () => {
             </div>
             <div>
               <h2>Attendance Details</h2>
-                <div style={{ height: 'auto', marginTop: -10 }} className='attendance-details'>
+                <div style={{ height: 'auto', marginTop: -10}} className='attendance-details'>
                 <DataGrid
                   rows={employeeDetails.attendances}
                   columns={columns}
-                  initialState={{
-                    pagination: {
-                      paginationModel: { page: 0, pageSize: 10 },
-                    },
-                  }}  
-                  pageSizeOptions={[5, 10]}
-                  disableExtendRowFullWidth={true}
                 />
               </div>
             </div>
@@ -232,3 +225,16 @@ export default EmployeeDetails
               //     />
               //   </Paper>
               // </div>
+
+
+  // const [page, setPage] = React.useState(0);
+  // const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  // const handleChangePage = (event, newPage) => {
+  //   setPage(newPage);
+  // };
+
+  // const handleChangeRowsPerPage = (event) => {
+  //   setRowsPerPage(+event.target.value);
+  //   setPage(0);
+  // };
