@@ -1,0 +1,18 @@
+.nav-logo-container {
+  margin-top: -10px;
+  margin-bottom: -20px;
+  font-size: xx-large;
+  text-align: center;
+  font-family: "Emilys Candy", sans-serif;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .nav-logo-container {
+      max-width: 140px;
+    }
+}
