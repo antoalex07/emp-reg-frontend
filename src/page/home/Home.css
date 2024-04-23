@@ -1,63 +1,47 @@
-
-body, html{
-    overflow-x: hidden;
-    overflow-y: hidden;
-} 
-
-.home{
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    margin-left: -2.6%;
+.home-container { 
+  font-family: "Reem Kufi", sans-serif;
 }
 
-.section{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.home-banner-container {
     position: relative;
-    overflow: hidden;
-    color: #8bd5e5;
-    text-align: center;
-    font-family: "Honk", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "MORF" 15,
-      "SHLN" 50;
+    display: flex;
+    padding-top: 3rem;
 }
 
-.section-1{
-    background: linear-gradient(135deg, #009fff, #ec2f4b);
+.navbar-links-container {
+  margin-top: 35px;
+  display: inline-block;
+  align-items: center;
+  font-family: "Reem Kufi", sans-serif;
 }
 
-.section-2 {
-    background: linear-gradient(135deg, #415587, #3eb070);
+.navbar-links-container a {
+  padding: 10px;
 }
 
-.section-3{
-    background: linear-gradient(135deg, #131199, #38ef7d);
+.link {
+  color: inherit;
+  text-decoration: none;
 }
 
-.section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: rotate(45deg);
-    z-index: 0;
+.home-text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.section > a {
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    text-decoration: none;
-    font-size: 45px;
+.primary-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #4c4c4c;
+  max-width: 500px;
 }
+
+.primary-text {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  max-width: 500px;
+  color: #6a6a6a;
+  margin: 1.5rem 0rem;
+}
+
