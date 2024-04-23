@@ -16,7 +16,7 @@ const Day = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = (id) => {
-    console.log('Button clicked for row Id: ', id);
+    navigate(`updateAttendance?id=${id}&date=${date}`);
   };
 
   const columns = [
@@ -60,18 +60,6 @@ const Day = () => {
     },
   ];
 
-  const rows = [
-    { id: 1, name: 'Snow', work: 5, overtime: 3, advance: 3000 },
-    { id: 2, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
-    { id: 3, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
-    { id: 4, name: 'Stark', work: 5, overtime: 3, advance: 3000 },
-    { id: 5, name: 'Targaryen', work: 5, overtime: 3, advance: 3000 },
-    { id: 6, name: 'Melisandre', work: 5, overtime: 3, advance: 3000 },
-    { id: 7, name: 'Clifford',  work: 5, overtime: 3, advance: 3000 },
-    { id: 8, name: 'Frances', work: 5, overtime: 3, advance: 3000 },
-    { id: 9, name: 'Roxie', work: 5, overtime: 3, advance: 3000 },
-  ];
-
   const getAttendances = async () => {
     
     try {
@@ -91,8 +79,6 @@ const Day = () => {
     getAttendances();
   }, [])
 
-  //console.log(attendances);
-
   const handleAddButtonClick = () => {
     navigate(`/calendar/day/add-attendance?date=${date}`);
   }
@@ -110,7 +96,8 @@ const Day = () => {
 
       <div style={{ height: 'calc(100% - 80px)', marginTop: -10 }}>
         <DataGrid
-          rows={rows}
+          className='custom-data-grid'
+          rows={attendances}
           columns={columns}
           initialState={{
             pagination: {
@@ -125,3 +112,16 @@ const Day = () => {
 }
 
 export default Day
+
+
+// const rows = [
+//   { id: 1, name: 'Snow', work: 5, overtime: 3, advance: 3000 },
+//   { id: 2, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+//   { id: 3, name: 'Lannister', work: 5, overtime: 3, advance: 3000 },
+//   { id: 4, name: 'Stark', work: 5, overtime: 3, advance: 3000 },
+//   { id: 5, name: 'Targaryen', work: 5, overtime: 3, advance: 3000 },
+//   { id: 6, name: 'Melisandre', work: 5, overtime: 3, advance: 3000 },
+//   { id: 7, name: 'Clifford',  work: 5, overtime: 3, advance: 3000 },
+//   { id: 8, name: 'Frances', work: 5, overtime: 3, advance: 3000 },
+//   { id: 9, name: 'Roxie', work: 5, overtime: 3, advance: 3000 },
+// ];
