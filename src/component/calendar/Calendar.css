@@ -3,10 +3,8 @@
     height: 100vh;
     width: 100vw;
     margin-left: -2.6%;
-    background: linear-gradient(135deg, #131199, #38ef7d);
 }
 .calendar{
     margin: auto;
     margin-top: 5%;
-    background: linear-gradient(135deg, #995511, #3e38ef);
 }
