@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.custom-data-grid .MuiDataGrid-main {
+    border: none;
+}
+
 /* .dataGrid{
     height: calc(100% - 80px);
     margin-top: 64;
