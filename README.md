@@ -6,3 +6,5 @@ This code is after a long run of failures so I wasn't sure whether I would get t
 there are ways to style the code without bringing in extra css files and instead just naming the divs with appropriate classes its called css in js libraries this might be a way to reduce the code complexity and i am gonna learn that
 
 also i need to change the logo to an svg icon to make it more compatible with the website
+
+```flex-direction: column``` is used to make every modules inside a div arrange one below another 
