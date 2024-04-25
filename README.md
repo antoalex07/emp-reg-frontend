@@ -8,3 +8,24 @@ there are ways to style the code without bringing in extra css files and instead
 also i need to change the logo to an svg icon to make it more compatible with the website
 
 ```flex-direction: column``` is used to make every modules inside a div arrange one below another 
+
+```     {
+      field: 'actions',
+      headerName: 'Edit',
+      width: 150,
+      renderCell: (params) => (
+        <div>
+            {params.row.isEditable ? (
+              <Button onClick={() => handleButtonClick(params.row.id, params.row.date)}>
+                <EditNotifications />
+              </Button>
+            ) : (
+              <Button onClick={() => handleDeleteButtonClick(params.row.id)}>
+                 <GridDeleteIcon />
+              </Button>
+            )}
+        </div>
+      ), 
+    },
+```
+the above code is a reference on how to treat a boolean value in your data to be represented in the table
