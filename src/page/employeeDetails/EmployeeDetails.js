@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, IconButton, InputBase, Paper, Typography } from '@mui/material'
+import { Button, Card, CardContent, IconButton, InputBase, Paper, ThemeProvider, Typography, createTheme } from '@mui/material'
 import React, { useState } from 'react'
 import api from "../../api/axiosConfig"
 import { DataGrid } from '@mui/x-data-grid';
@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import notFound from '../../assets/not-found.png';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import Flower from '../../assets/flower.jpg';
 
 
 const EmployeeDetails = () => {
@@ -72,7 +71,7 @@ const EmployeeDetails = () => {
     },
     {
       field: 'actions',
-      headerName: 'Edit',
+      headerName: 'Actions',
       width: 150,
       renderCell: (params) => (
         <div>
@@ -95,6 +94,16 @@ const EmployeeDetails = () => {
       console.log(error);
     }
   }
+  const theme = createTheme({
+    palette: {
+      cyan: {
+        main: '#0a0a0a',
+        light: '#2f2f2f',
+        dark: '#000000',
+        contrastText: '#e7e7e7',
+      },
+    },
+  });
 
   return (
     <div style={{
@@ -302,6 +311,7 @@ const EmployeeDetails = () => {
                 marginTop: '8px', 
                 height: 400,
                 width: '10vw',
+                marginLeft: '50px',
                 marginRight: '9px',
                 borderRadius: 3
               }}
@@ -309,11 +319,43 @@ const EmployeeDetails = () => {
               columns={columns}
             />
           <div>
-            <Card>
-                <CardContent>
-                  america ya
-                </CardContent>
-              </Card>
+            <div style={{}}>
+            
+            <Typography sx={{ textAlign: 'left',
+                              fontFamily: 'Anton, sans seriff',
+                              fontSize: '50px',
+                              color: '#03666f'
+                            }}>
+                Extend Your <span style={{color: '#038b94'}}>Dreams,</span>
+            </Typography>
+            
+            <Typography sx={{ textAlign: 'left',
+                              fontFamily: 'Pacifico, sans seriff',
+                              fontSize: '40px',
+                              color: '#049fb9'
+                            }}>
+                make it beautiful
+            </Typography>
+            
+            <Typography sx={{ textAlign: 'left',
+                              fontFamily: 'Anton, sans seriff',
+                              fontSize: '50px',
+                              color: '#33b5ab'
+                            }}>
+                with <span style={{color: '#66bfaf'}}>Natrium Solutions</span>
+            </Typography>
+            
+            <ThemeProvider theme={theme}>
+              <Button variant='contained' 
+                      color='cyan' 
+                      style={{ fontSize: '20px',
+                               width: '500px',
+                               marginTop: '28%' 
+                                }}>
+                        Settle Bill</Button>
+            </ThemeProvider>
+            
+            </div>
           </div>
         </div>
 
