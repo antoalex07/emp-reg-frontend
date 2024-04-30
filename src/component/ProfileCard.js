@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../assets/image-rita.png';
+import avatar from '../assets/employeeAvatar.jpg';
 import backgroundPattern from '../assets/bg-pattern-card.svg';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
@@ -61,7 +61,7 @@ const ProfileCard = (props) => {
 					 		 fontSize: '1.1rem',
 					 		 textAlign: 'center',
 					 		 padding: '10px 20px 0px 20px'
-						}}><CurrencyRupeeIcon sx={{ fontSize: 'inherit', verticalAlign: 'middle' }}/>{props.wageRate}</h1>
+						}}><CurrencyRupeeIcon sx={{ fontSize: '1rem', verticalAlign: '-2px' }}/>{props.wageRate}</h1>
 				<h2 style={{ fontWeight: 'normal',
 			 				 fontSize: '0.7rem',
 							 color: 'hsl(0, 0%, 50%)',
@@ -76,7 +76,7 @@ const ProfileCard = (props) => {
 					 		 fontSize: '1.1rem',
 					 		 textAlign: 'center',
 					 		 padding: '10px 20px 0px 20px'
-						}}><CurrencyRupeeIcon sx={{ fontSize: 'inherit', verticalAlign: 'middle' }}/>{props.overtimeRate}</h1>
+						}}><CurrencyRupeeIcon sx={{ fontSize: '1rem', verticalAlign: '-2px' }}/>{props.overtimeRate}</h1>
 				<h2 style={{ fontWeight: 'normal',
 			 				 fontSize: '0.7rem',
 							 color: 'hsl(0, 0%, 50%)',
@@ -91,7 +91,7 @@ const ProfileCard = (props) => {
 					 		 fontSize: '1.1rem',
 					 		 textAlign: 'center',
 					 		 padding: '10px 20px 0px 20px'
-						}}><CurrencyRupeeIcon sx={{ fontSize: 'inherit', verticalAlign: 'middle' }}/>{props.dueAmount}</h1>
+						}}><CurrencyRupeeIcon sx={{ fontSize: '1rem', verticalAlign: '-2px' }}/>{props.dueAmount}</h1>
 				<h2 style={{ fontWeight: 'normal',
 			 				 fontSize: '0.7rem',
 							 color: 'hsl(0, 0%, 50%)',
