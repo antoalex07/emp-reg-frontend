@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import Header from './component/header/Header';
 import Home from './page/home/Home';
-import Day from './page/day/Day';
+import Day from './page/Day';
 import Calendar from './component/calendar/Calendar';
 import AddAttendance from './page/addAttendance/AddAttendance';
 import CreateEmployee from './page/createEmployee/CreateEmployee';
-import EmployeeRegister from './page/employeeRegister/EmployeeRegister';
-import EmployeeDetails from './page/employeeDetails/EmployeeDetails';
+import EmployeeRegister from './page/EmployeeRegister';
+import EmployeeDetails from './page/EmployeeDetails';
 import UpdateEmployee from './page/updateEmployee/UpdateEmployee';
 import UpdateAttendance from './page/updateAttendance/UpdateAttendance';
 
