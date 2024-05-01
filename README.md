@@ -29,3 +29,43 @@ also i need to change the logo to an svg icon to make it more compatible with th
     },
 ```
 the above code is a reference on how to treat a boolean value in your data to be represented in the table
+
+
+consider that u have a text field of some sort and its type is number mine looks something like this
+
+```
+      <Paper
+            component="form"
+            sx={{
+                  marginTop: '6%',
+                  marginLeft: '12px',
+                  p: '10px 4px',
+                  display: 'flex',
+                  width: 350,
+                  borderRadius: '30px',
+                  alignItems: 'center',
+                  backgroundColor: '#c2f3dd'
+            }}
+      >
+            <TodayRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
+            <InputBase
+                  id='overtime'
+                  placeholder='Overtime Hours'
+                  type='number'
+                  defaultValue={attendance.overtime}
+                  onKeyDown={handleKeyPress}
+                  sx={{ flex: 1, marginLeft: '10px', fontSize: '18px' }}
+            />
+      </Paper>
+```
+so for this code the textfield appearing will have a spin button that allows you to increase or decrease the number in the box by 1 since here its not particularly useful and also ruins the color grade (not that its great) so if you want to remove that add these to the `sx` part in the `InputBase`
+
+```
+      sx={{ 
+            flex: 1, 
+            marginLeft: '10px', 
+            fontSize: '18px',
+            "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": { display: "none" },
+            "& input[type=number]": { MozAppearance: "inputbase" } 
+      }}
+```
