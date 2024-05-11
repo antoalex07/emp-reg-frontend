@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import Header from './component/header/Header';
 import Home from './page/home/Home';
-import Day from './page/Day';
+import Day from './page/day/Day.js';
 import Calendar from './component/calendar/Calendar';
 import AddAttendance from './page/addAttendance/AddAttendance';
 import CreateEmployee from './page/createEmployee/CreateEmployee';
