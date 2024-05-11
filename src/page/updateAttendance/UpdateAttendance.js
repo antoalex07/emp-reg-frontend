@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api/axiosConfig.js';
-import { Button, IconButton, InputBase, Paper, TextField } from '@mui/material';
+import { Button, InputBase, Paper, ThemeProvider, createTheme } from '@mui/material';
 import './UpdateAttendance.css';
 import { KeyboardBackspaceRounded } from '@mui/icons-material';
 import TodayRoundedIcon from '@mui/icons-material/TodayRounded';
+import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
+import MoreTimeRoundedIcon from '@mui/icons-material/MoreTimeRounded';
+import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 
 const UpdateAttendance = () => {
 
@@ -45,7 +48,15 @@ const UpdateAttendance = () => {
 
     useEffect(() => {
         getAttendance();
-    }, [])
+    }, []);
+
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: '#44b386',
+          },
+        },
+      });
 
     return (
         <div className='page'>
@@ -105,7 +116,7 @@ const UpdateAttendance = () => {
                             backgroundColor: '#c2f3dd'
                         }}
                         >
-                        <TodayRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
+                        <WorkRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
                         <InputBase
                             id='work'
                             sx={{ 
@@ -135,7 +146,7 @@ const UpdateAttendance = () => {
                             backgroundColor: '#c2f3dd'
                         }}
                         >
-                        <TodayRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
+                        <MoreTimeRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
                         <InputBase
                             id='overtime'
                             sx={{ 
@@ -165,7 +176,7 @@ const UpdateAttendance = () => {
                             backgroundColor: '#c2f3dd'
                         }}
                         >
-                        <TodayRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
+                        <MoneyRoundedIcon sx={{ml: 1}} htmlColor='#818283' /> 
                         <InputBase
                             id='advance'
                             sx={{ 
@@ -181,6 +192,17 @@ const UpdateAttendance = () => {
                             onKeyDown={handleKeyPress}
                         />
                     </Paper>
+
+                    <ThemeProvider theme={theme}>
+                        <Button variant='contained'  
+                                style={{ fontSize: '20px',
+                                         width: 350,
+                                         borderRadius: '30px',
+                                         marginLeft: '12px',
+                                         marginTop: '40px'
+                                        }}>
+                                    Submit</Button>
+                    </ThemeProvider>
 
                 </div>
             
