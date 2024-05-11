@@ -1,0 +1,25 @@
+.day-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.day-container .image-container {
+    background-image: url('../../assets/empty-folder.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-left: 100px;
+    width: 20vw;
+    height: 50vh;
+}
+
+.text-container {
+    font-family: "Lato", sans-serif;
+    flex: 1;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
