@@ -15,6 +15,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
     background-image: linear-gradient(to right, #ffffff, #feffff, #fdffff, #fbffff, #f9ffff);    
     border: none;
     border-radius: 30px;

@@ -7,7 +7,17 @@ import emptyFolder from '../assets/empty-folder.jpg'
 
 const EmployeeRegister = () => {
 
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([
+    { id: 1, name: 'Snow', wageRate: 35, overtimeRate: 200, dueAmount: 6000 },
+    { id: 2, name: 'Lannister', wageRate: 42, overtimeRate: 200, dueAmount: 6000 },
+    { id: 3, name: 'Lannister', wageRate: 45, overtimeRate: 200, dueAmount: 6000 },
+    { id: 4, name: 'Stark', wageRate: 16, overtimeRate: 200, dueAmount: 6000 },
+    { id: 5, name: 'Targaryen', wageRate: 200, overtimeRate: 200, dueAmount: 6000 },
+    { id: 6, name: 'Melisandre', wageRate: 150, overtimeRate: 200, dueAmount: 6000 },
+    { id: 7, name: 'Clifford', wageRate: 44, overtimeRate: 200, dueAmount: 6000 },
+    { id: 8, name: 'Frances', wageRate: 36, overtimeRate: 200, dueAmount: 6000 },
+    { id: 9, name: 'Roxie', wageRate: 65, overtimeRate: 200, dueAmount: 6000 },
+  ]);
 
   const navigate = useNavigate();
 

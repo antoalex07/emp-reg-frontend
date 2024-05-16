@@ -12,7 +12,25 @@ import bgPatternTop from '../assets/bg-pattern-top.svg'
 const EmployeeDetails = () => {
 
   const [employeeId, setEmployeeId] = useState("");
-  const [employeeDetails, setEmployeeDetails] = useState([]);
+  const [employeeDetails, setEmployeeDetails] = useState({ id: 1111,
+    name: 'John Doe',
+    wageRate: 20, // Example wage rate
+    overtimeRate: 30, // Example overtime rate
+    dueAmount: 100, // Example due amount
+    attendances: [
+      { id: 1211, date: '2024-03-01', work: 8, overtime: 2, advance: 500 },
+      { id: 1212, date: '2024-03-02', work: 7, overtime: 3, advance: 600 },
+      { id: 1213, date: '2024-03-03', work: 4, overtime: 8, advance: 650 },
+      { id: 1214, date: '2024-03-04', work: 3, overtime: 5, advance: 760 },
+      { id: 1215, date: '2024-03-05', work: 5, overtime: 6, advance: 800 },
+      { id: 1216, date: '2024-03-06', work: 4, overtime: 7, advance: 750 },
+      { id: 1217, date: '2024-03-07', work: 2, overtime: 3, advance: 800 },
+      { id: 1218, date: '2024-03-08', work: 1, overtime: 9, advance: 600 },
+      { id: 1219, date: '2024-03-09', work: 6, overtime: 1, advance: 900 },
+      { id: 1220, date: '2024-03-10', work: 7, overtime: 4, advance: 1000 },
+      { id: 1221, date: '2024-03-11', work: 4, overtime: 5, advance: 200 },
+    ]
+  });
   const [searchInitiated, setSearchInitiated] = useState(false);
   
   const navigate = useNavigate();
@@ -131,7 +149,7 @@ const EmployeeDetails = () => {
       </IconButton>
     </Paper>
     
-    {searchInitiated && employeeDetails.length === 0 ? (
+    {searchInitiated && employeeDetails.length === 1 ? (
       
       <div style={{
         marginTop: '16px',
