@@ -65,9 +65,9 @@ const UpdateAttendance = () => {
                 <div className='image-container'>
                         <KeyboardBackspaceRounded 
                             htmlColor='#818283'
-                            style={{ position: 'fixed',
-                                    top: '110px',
-                                    left: '231px',
+                            style={{ position: 'absolute',
+                                    top: '30px',
+                                    left: '30px',
                                     fontSize: '40px',   
                                 }}/>
                 </div>
