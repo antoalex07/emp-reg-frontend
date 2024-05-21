@@ -69,3 +69,34 @@ so for this code the textfield appearing will have a spin button that allows you
             "& input[type=number]": { MozAppearance: "inputbase" } 
       }}
 ```
+
+```
+@media all and (min-width:960px) and (max-width: 1024px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+  /* put your css styles in here */
+}
+```
+style changes across various devices
